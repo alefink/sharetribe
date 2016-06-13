@@ -1,5 +1,7 @@
 /* eslint-env node */
 
+const topbarBorderColor = 'rgba(169, 172, 176, 0.5)';
+
 module.exports = {
 
   /*
@@ -74,10 +76,14 @@ module.exports = {
   '--topbarLogoHeight': '40px',
   '--topbarFontFamily': "'Proxima Nova Soft', Helvetica, sans",
   '--topbarFontSize': '14px',
+  '--topbarAvatarSize': '44px',
+  '--topbarAvatarMargin': '18px 24px',
+
+  '--topbarBorderColor': topbarBorderColor,
 
   // SearchBar
   '--SearchBar_width': '24em',
-  '--SearchBar_borderColor': 'rgba(169, 172, 176, 0.5)',
+  '--SearchBar_borderColor': topbarBorderColor,
   '--SearchBar_borderColorActive': 'rgb(122, 125, 128)',
   '--SearchBar_textColor': 'rgb(122, 125, 128)',
   '--SearchBar_textColorActive': 'rgb(82, 89, 97)',

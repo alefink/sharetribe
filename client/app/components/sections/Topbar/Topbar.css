@@ -41,3 +41,10 @@
 .topbarLogo {
   height: var(--topbarLogoHeight);
 }
+
+.topbarAvatar {
+  height: var(--topbarAvatarSize);
+  margin: var(--topbarAvatarMargin);
+  font-family: var(--topbarFontFamily);
+  font-size: var(--topbarFontSize);
+}
