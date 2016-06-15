@@ -243,6 +243,10 @@
   cursor: pointer;
   z-index: var(--SearchBar_childZIndex);
 
+  &:hover {
+    background-color: #2C3e50;
+  }
+
   @media (min-width: 40em) {
     padding: 0 var(--SearchBar_sidePadding);
     padding-top: 2px; /* Fix position. */
