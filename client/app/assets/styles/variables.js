@@ -1,7 +1,10 @@
 /* eslint-env node */
+const fontSize = '14px';
+const fontSizeBig = '16px';
 const textColor = 'rgb(82, 89, 97)';
 const textColorFocus = 'rgb(28, 30, 33)';
 const borderColor = 'rgba(169, 172, 176, 0.5)';
+const backgroundLightColor = 'white';
 const paddingTopbarVertical = '0.8125em';
 const paddingTopbarHorizontal = '1.5em';
 
@@ -44,7 +47,7 @@ module.exports = {
   '--lineHeightTitle': '1.875rem',
   '--lineHeightInfo': '1.38462rem',
 
-  '--colorBackground': 'white',
+  '--colorBackground': backgroundLightColor,
   '--color': '#3c3c3c',
   '--colorTitle': '#171717',
   '--colorActionText': '#4d998b',
@@ -82,7 +85,7 @@ module.exports = {
 
   // SearchBar
   '--SearchBar_width': '24em',
-  '--SearchBar_borderColor': 'rgba(169, 172, 176, 0.5)',
+  '--SearchBar_borderColor': borderColor,
   '--SearchBar_borderColorActive': 'rgb(122, 125, 128)',
   '--SearchBar_textColor': 'rgb(122, 125, 128)',
   '--SearchBar_textColorActive': 'rgb(82, 89, 97)',
@@ -107,5 +110,10 @@ module.exports = {
   '--MenuItem_textColor': textColor,
   '--MenuItem_textColorFocus': textColorFocus,
   '--MenuItem_letterSpacing': '0.09px',
+
+  '--Menu_fontSize': fontSize,
+  '--Menu_fontSizeBig': fontSizeBig,
+  '--Menu_colorBackground': backgroundLightColor,
+  '--Menu_borderColor': borderColor,
 
 };
