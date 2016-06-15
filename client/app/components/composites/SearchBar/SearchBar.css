@@ -36,7 +36,7 @@
   position: relative;
   margin-top: 1.2em; /* center vertically within Topbar */
   padding-left: var(--SearchBar_sidePadding);
-  z-index: 1; /* TODO: move to var */
+  z-index: 1; /* TODO: var */
   transition: height 1s ease-in;
 
   @nest .mobileMenuOpen & {
@@ -44,14 +44,13 @@
     position: absolute;
     left: 0;
     right: 0;
-    background-color: #34495e;
+    background-color: #34495e; /* TODO: var */
     margin-top: 0;
   }
 
-  /* TODO: custom media query */
   @media (min-width: 40em) {
-    /* display: inline-flex; */
-    /* width: 28.3em; */
+    display: inline-flex;
+    width: 28.3em; /* TODO: var */
   }
 
   &:hover .focusContainer::before {
@@ -80,10 +79,9 @@
   z-index: var(--SearchBar_focusContainerZIndex); /* Required to allow mouse event to the inputs/buttons. */
   transition: border-color 0.1s ease-in;
 
-  /* TODO: custom media query */
   @media (min-width: 40em) {
-    /* display: block; */
-    /* border-radius: 10em; /\* Big enough to be fully rounded *\/ */
+    display: block;
+    border-radius: 10em; /* Big enough to be fully rounded */
   }
 }
 
@@ -93,34 +91,43 @@
   width: 0;
   margin: var(--SearchBar_textPadding) 0;
   padding: 0;
-  line-height: 2.9; /* TODO: move to var */
-  /* line-height: var(--SearchBar_lineHeight); */
+  line-height: 2.9; /* TODO: var */
   border: none;
-  color: #fff;
-  transition: color 0.1s ease-in;
+  color: #fff; /* TODO: var */
   font-weight: var(--SearchBar_inputFontWeight);
   z-index: var(--SearchBar_childZIndex);
   flex-grow: 1;
-  transition: flex-grow 0.25s ease-out;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  transition: flex-grow 0.25s ease-out, width 0.25s ease-out, color 0.1s ease-in;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* TODO: var */
 
   -webkit-font-smoothing: antialiased;
 
   &:focus {
     outline: none;
     flex-grow: 9;
-    border-color: #fff;
+    border-color: #fff; /* TODO: var */
+
+    @media (min-width: 40em) {
+      flex-grow: 1;
+    }
   }
 
   @nest .mobileMenuOpen & {
-    background-color: #34495e;
+    background-color: #34495e; /* TODO: var */
   }
 
   &:only-of-type {
     width: 100%;
     padding: 0;
-    /* margin-right: var(--SearchBar_inputButtonMargin); */
     margin-right: calc(var(--SearchBar_inputButtonMargin) + 2 * var(--SearchBar_textPadding));
+
+    @media (min-width: 40em) {
+      margin-right: var(--SearchBar_inputButtonMargin);
+
+      &:focus {
+        margin-right: var(--SearchBar_inputButtonMargin);
+      }
+    }
 
     &:focus {
       width: 100%;
@@ -132,70 +139,93 @@
   }
 
   &::placeholder {
-    color: #FCFCFC;
+    color: #FCFCFC; /* TODO: var */
   }
 
-  /* @media (min-width: 40em) { */
-  /*   color: var(--SearchBar_textColor); */
+  @media (min-width: 40em) {
+    color: var(--SearchBar_textColor);
+    line-height: var(--SearchBar_lineHeight);
 
-  /*   &::placeholder { */
-  /*     color: var(--SearchBar_textColor); */
-  /*     transition: color 0.1s ease-in; */
-  /*   } */
+    &::placeholder {
+      color: var(--SearchBar_textColor);
+      transition: color 0.1s ease-in;
+    }
 
-  /*   @nest .form:hover & { */
-  /*     color: var(--SearchBar_textColorActive); */
+    @nest .form:hover & {
+      color: var(--SearchBar_textColorActive);
 
-  /*     &::placeholder { */
-  /*       color: var(--SearchBar_textColorActive); */
-  /*     } */
+      &::placeholder {
+        color: var(--SearchBar_textColorActive);
+      }
 
-  /*     &:focus { */
-  /*       /\* focus color should override the active color *\/ */
-  /*       color: var(--SearchBar_textColorFocus); */
-  /*     } */
-  /*   } */
+      &:focus {
+        /* focus color should override the active color */
+        color: var(--SearchBar_textColorFocus);
+      }
+    }
 
-  /*   &:focus { */
-  /*     outline: none; */
-  /*     color: var(--SearchBar_textColorFocus); */
+    &:focus {
+      outline: none;
+      color: var(--SearchBar_textColorFocus);
 
-  /*     /\* Trigger focus styles for the search icon SVG when these inputs have focus. *\/ */
-  /*     & ~ .searchButton svg { */
-  /*       stroke: var(--SearchBar_iconColorActive); */
-  /*     } */
-  /*   } */
-  /* } */
+      /* Trigger focus styles for the search icon SVG when these inputs have focus. */
+      & ~ .searchButton svg {
+        stroke: var(--SearchBar_iconColorActive);
+      }
+    }
+  }
 }
 
 .keywordInput {
-  /* width: var(--SearchBar_keywordInputWidth); */
   margin-right: var(--SearchBar_textPadding);
 
+  @media (min-width: 40em) {
+    width: var(--SearchBar_keywordInputWidth);
+  }
+
   &:focus {
-    /* width: var(--SearchBar_keywordInputFocusWidth); */
+
+    @media (min-width: 40em) {
+      width: var(--SearchBar_keywordInputFocusWidth);
+      margin-right: calc(2 * var(--SearchBar_textPadding));
+    }
 
     & ~ .locationInput {
-      /* width: calc(100% - var(--SearchBar_keywordInputFocusWidth)); */
       margin-right: var(--SearchBar_inputButtonMargin);
+
+      @media (min-width: 40em) {
+        width: calc(100% - var(--SearchBar_keywordInputFocusWidth));
+      }
     }
 
     & ~ .searchButton {
-      box-shadow: -1em 0 3em -1em #000;
+      box-shadow: -1em 0 3em -1em #000; /* TODO: var? */
+
+      @media (min-width: 40em) {
+        box-shadow: none;
+      }
     }
   }
 }
 
 .locationInput {
-  /* width: calc(100% - var(--SearchBar_keywordInputWidth)); */
+  @media (min-width: 40em) {
+    width: calc(100% - var(--SearchBar_keywordInputWidth));
+  }
 }
 
 /* Additional separating styles are added only when the two inputs are
    next to each other. */
 .keywordInput + .locationInput {
-  /* border-left: 1px solid var(--SearchBar_borderColor); */
   margin-left: var(--SearchBar_textPadding);
   margin-right: calc(var(--SearchBar_inputButtonMargin) + 2 * var(--SearchBar_textPadding));
+
+  @media (min-width: 40em) {
+    border-left: 1px solid var(--SearchBar_borderColor);
+    padding-left: calc(2 * var(--SearchBar_textPadding));
+    margin-left: 0;
+    margin-right: var(--SearchBar_inputButtonMargin);
+  }
 }
 
 .searchButton {
@@ -206,57 +236,70 @@
   bottom: 0;
   margin: 0;
   padding: 0;
-  /* padding: 0 var(--SearchBar_sidePadding); */
-  /* padding-top: 2px; /\* Fix position. *\/ */
   line-height: var(--SearchBar_searchButtonLineHeight);
   border: none;
-  /* background-color: transparent; */
-  background-color: #2C3e50;
-  width: 4em;
+  background-color: #2C3e50; /* TODO: var */
+  width: 4em; /* TODO: var */
   cursor: pointer;
   z-index: var(--SearchBar_childZIndex);
 
-  &:hover {
-    /* background-color: transparent; */
+  @media (min-width: 40em) {
+    padding: 0 var(--SearchBar_sidePadding);
+    padding-top: 2px; /* Fix position. */
+    background-color: transparent;
+
+    &:focus {
+      outline: none;
+
+      & svg {
+        outline: 1px solid var(--SearchBar_borderColor);
+        stroke: var(--SearchBar_iconColorFocus);
+      }
+    }
+
+    @nest .form:hover & {
+
+      & svg {
+        stroke: var(--SearchBar_iconColorActive);
+      }
+
+      &:hover svg,
+      &:focus svg {
+        stroke: var(--SearchBar_iconColorFocus);
+      }
+    }
+
+    &:hover {
+      background-color: transparent;
+    }
   }
 
   &::before {
     content: '';
     position: absolute;
-    top: -1.17em;
-    right: 1.4em;
-    border: 0.6em solid transparent;
-    border-bottom-color: #2C3e50;
+    top: -1.17em; /* TODO: var? */
+    right: 1.4em; /* TODO: var? */
+    border: 0.6em solid transparent; /* TODO: var? */
+    border-bottom-color: #2C3e50; /* TODO: var */
+
+    @media (min-width: 40em) {
+      display: none;
+    }
   }
 
   & svg {
     line-height: 1;
-    width: 1.6em;
-    height: 1.6em;
-    margin-top: 1em;
-    stroke: #fff;
-    /* stroke: var(--SearchBar_iconColor); */
-    /* transition: stroke 0.1s ease-in; */
+    width: 1.6em; /* TODO: var? */
+    height: 1.6em; /* TODO: var? */
+    margin-top: 1em; /* TODO: var? */
+    stroke: #fff; /* TODO: var */
+    transition: stroke 0.1s ease-in;
 
-    @nest .form:hover & {
-      /* stroke: var(--SearchBar_iconColorActive); */
-
-      &:hover {
-        /* stroke: var(--SearchBar_iconColorFocus); */
-      }
-    }
-  }
-
-  @nest .form:hover &:hover svg {
-    /* stroke: var(--SearchBar_iconColorFocus); */
-  }
-
-  &:focus {
-    /* outline: none; */
-
-    & svg {
-      /* stroke: var(--SearchBar_iconColorFocus); */
-      /* outline: 1px solid var(--SearchBar_borderColor); */
+    @media (min-width: 40em) {
+      stroke: var(--SearchBar_iconColor);
+      width: 1em; /* TODO: var? */
+      height: 1em; /* TODO: var? */
+      margin-top: 2px; /* TODO: var? */
     }
   }
 }
@@ -265,11 +308,11 @@
   display: inline-block;
   margin: 0;
   padding: 0;
-  width: 4em;
+  width: 4em; /* TODO: var */
   height: 100%;
   background-color: transparent;
   border: none;
-  stroke: #000;
+  stroke: #000; /* TODO: var */
   cursor: pointer;
 
   &:hover {
@@ -277,12 +320,11 @@
   }
 
   & svg {
-    width: 1.6em;
-    height: 1.6em;
+    width: 1.6em; /* TODO: var */
+    height: 1.6em; /* TODO: var */
   }
 
-  /* TODO: custom media query */
   @media (min-width: 40em) {
-    /* display: none; */
+    display: none;
   }
 }
