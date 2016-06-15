@@ -70,10 +70,11 @@ module.exports = {
   '--widthRestriction': '550px',
   '--widthRestrictionPercentage': '90%',
 
-  '--topbarHeight': '80px',
-  '--topbarLogoHeight': '40px',
-  '--topbarFontFamily': "'Proxima Nova Soft', Helvetica, sans",
-  '--topbarFontSize': '14px',
+  '--Topbar_height': '80px',
+  '--Topbar_mobileHeight': '50px',
+  '--Topbar_logoHeight': '40px',
+  '--Topbar_fontFamily': "'Proxima Nova Soft', Helvetica, sans",
+  '--Topbar_fontSize': '14px',
 
   // SearchBar
   '--SearchBar_width': '24em',

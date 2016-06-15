@@ -1,13 +1,16 @@
 .topbar {
   display: flex;
   flex-direction: row;
-  height: 50px;
-  /* height: var(--topbarHeight); */
+  height: var(--Topbar_mobileHeight);
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
   background: var(--colorBackground);
   border-bottom: 1px solid rgba(0, 0, 50, 0.1);
+
+  @media (min-width: 40em) {
+    height: var(--Topbar_height);
+  }
 
   /* Base styles */
   box-sizing: border-box;
@@ -28,11 +31,11 @@
   & button,
   & svg {
     box-sizing: border-box;
-    font-family: var(--topbarFontFamily);
-    font-size: var(--topbarFontSize);
+    font-family: var(--Topbar_fontFamily);
+    font-size: var(--Topbar_fontSize);
   }
 }
 
 .topbarLogo {
-  height: var(--topbarLogoHeight);
+  height: var(--Topbar_logoHeight);
 }
