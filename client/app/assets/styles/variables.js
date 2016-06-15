@@ -77,7 +77,7 @@ module.exports = {
   '--Topbar_fontSize': '14px',
 
   // SearchBar
-  '--SearchBar_width': '24em',
+  '--SearchBar_width': '28.3em',
   '--SearchBar_borderColor': 'rgba(169, 172, 176, 0.5)',
   '--SearchBar_borderColorActive': 'rgb(122, 125, 128)',
   '--SearchBar_textColor': 'rgb(122, 125, 128)',
@@ -93,8 +93,17 @@ module.exports = {
   '--SearchBar_inputFontWeight': '500',
   '--SearchBar_keywordInputWidth': '63%',
   '--SearchBar_keywordInputFocusWidth': '78%',
+  '--SearchBar_formZIndex': '1',
   '--SearchBar_focusContainerZIndex': '0',
   '--SearchBar_childZIndex': '1',
   '--SearchBar_searchButtonLineHeight': '44px',
   '--SearchBar_breakpointMedium': '40em',
+  '--SearchBar_mobileTextColor': '#fff',
+  '--SearchBar_mobileInputBorderColor': 'rgba(255, 255, 255, 0.3)',
+  '--SearchBar_mobilePlaceholderColor': '#FCFCFC',
+  '--SearchBar_mobileBackgroundColor': '#34495e',
+  '--SearchBar_mobileButtonBackgroundColor': '#2C3e50',
+  '--SearchBar_mobileButtonWidth': '4em',
+  '--SearchBar_mobileIconSize': '1.6em',
+  '--SearchBar_mobileLineHeight': '2.9',
 };

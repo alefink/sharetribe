@@ -36,7 +36,7 @@
   position: relative;
   margin-top: 1.2em; /* center vertically within Topbar */
   padding-left: var(--SearchBar_sidePadding);
-  z-index: 1; /* TODO: var */
+  z-index: var(--SearchBar_formZIndex);
   transition: height 1s ease-in;
 
   @nest .mobileMenuOpen & {
@@ -44,13 +44,13 @@
     position: absolute;
     left: 0;
     right: 0;
-    background-color: #34495e; /* TODO: var */
+    background-color: var(--SearchBar_mobileBackgroundColor);
     margin-top: 0;
   }
 
   @media (min-width: 40em) {
     display: inline-flex;
-    width: 28.3em; /* TODO: var */
+    width: var(--SearchBar_width);
   }
 
   &:hover .focusContainer::before {
@@ -91,21 +91,21 @@
   width: 0;
   margin: var(--SearchBar_textPadding) 0;
   padding: 0;
-  line-height: 2.9; /* TODO: var */
+  line-height: var(--SearchBar_mobileLineHeight);
   border: none;
-  color: #fff; /* TODO: var */
+  color: var(--SearchBar_mobileTextColor);
   font-weight: var(--SearchBar_inputFontWeight);
   z-index: var(--SearchBar_childZIndex);
   flex-grow: 1;
   transition: flex-grow 0.25s ease-out, width 0.25s ease-out, color 0.1s ease-in;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* TODO: var */
+  border-bottom: 1px solid var(--SearchBar_mobileInputBorderColor);
 
   -webkit-font-smoothing: antialiased;
 
   &:focus {
     outline: none;
     flex-grow: 9;
-    border-color: #fff; /* TODO: var */
+    border-color: var(--SearchBar_mobileTextColor);
 
     @media (min-width: 40em) {
       flex-grow: 1;
@@ -113,7 +113,7 @@
   }
 
   @nest .mobileMenuOpen & {
-    background-color: #34495e; /* TODO: var */
+    background-color: var(--SearchBar_mobileBackgroundColor);
   }
 
   &:only-of-type {
@@ -139,7 +139,7 @@
   }
 
   &::placeholder {
-    color: #FCFCFC; /* TODO: var */
+    color: var(--SearchBar_mobilePlaceholderColor);
   }
 
   @media (min-width: 40em) {
@@ -199,7 +199,7 @@
     }
 
     & ~ .searchButton {
-      box-shadow: -1em 0 3em -1em #000; /* TODO: var? */
+      box-shadow: -1em 0 3em -1em #000;
 
       @media (min-width: 40em) {
         box-shadow: none;
@@ -238,13 +238,13 @@
   padding: 0;
   line-height: var(--SearchBar_searchButtonLineHeight);
   border: none;
-  background-color: #2C3e50; /* TODO: var */
-  width: 4em; /* TODO: var */
+  background-color: var(--SearchBar_mobileButtonBackgroundColor);
+  width: var(--SearchBar_mobileButtonWidth);
   cursor: pointer;
   z-index: var(--SearchBar_childZIndex);
 
   &:hover {
-    background-color: #2C3e50;
+    background-color: var(--SearchBar_mobileButtonBackgroundColor);
   }
 
   @media (min-width: 40em) {
@@ -278,13 +278,14 @@
     }
   }
 
+  /* CSS triangle pointing to the search icon above */
   &::before {
     content: '';
     position: absolute;
-    top: -1.17em; /* TODO: var? */
-    right: 1.4em; /* TODO: var? */
-    border: 0.6em solid transparent; /* TODO: var? */
-    border-bottom-color: #2C3e50; /* TODO: var */
+    top: -1.17em;
+    right: 1.4em;
+    border: 0.6em solid transparent;
+    border-bottom-color: var(--SearchBar_mobileButtonBackgroundColor);
 
     @media (min-width: 40em) {
       display: none;
@@ -293,17 +294,17 @@
 
   & svg {
     line-height: 1;
-    width: 1.6em; /* TODO: var? */
-    height: 1.6em; /* TODO: var? */
-    margin-top: 1em; /* TODO: var? */
-    stroke: #fff; /* TODO: var */
+    width: var(--SearchBar_mobileIconSize);
+    height: var(--SearchBar_mobileIconSize);
+    margin-top: 1em; /* Fix position */
+    stroke: var(--SearchBar_mobileTextColor);
     transition: stroke 0.1s ease-in;
 
     @media (min-width: 40em) {
       stroke: var(--SearchBar_iconColor);
-      width: 1em; /* TODO: var? */
-      height: 1em; /* TODO: var? */
-      margin-top: 2px; /* TODO: var? */
+      width: 1em;
+      height: 1em;
+      margin-top: 0.14em; /* Fix position */
     }
   }
 }
@@ -312,11 +313,11 @@
   display: inline-block;
   margin: 0;
   padding: 0;
-  width: 4em; /* TODO: var */
+  width: var(--SearchBar_mobileButtonWidth);
   height: 100%;
   background-color: transparent;
   border: none;
-  stroke: #000; /* TODO: var */
+  stroke: #000;
   cursor: pointer;
 
   &:hover {
@@ -324,8 +325,8 @@
   }
 
   & svg {
-    width: 1.6em; /* TODO: var */
-    height: 1.6em; /* TODO: var */
+    width: var(--SearchBar_mobileIconSize);
+    height: var(--SearchBar_mobileIconSize);
   }
 
   @media (min-width: 40em) {
