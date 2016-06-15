@@ -5,6 +5,7 @@ import css from './Topbar.css';
 
 import Logo from '../../elements/Logo/Logo';
 import SearchBar from '../../composites/SearchBar/SearchBar';
+import Menu from '../../composites/Menu/Menu';
 
 class Topbar extends Component {
   render() {
@@ -21,6 +22,12 @@ class Topbar extends Component {
           },
         }) :
         null,
+      this.props.menu ?
+        r(Menu, Object.assign({}, this.props.menu, { key: 'menu' })) :
+        null,
+      this.props.languageMenu ?
+        r(Menu, Object.assign({}, this.props.languageMenu, { key: 'languageMenu' })) :
+        null,
     ]);
   }
 }
@@ -30,6 +37,8 @@ Topbar.propTypes = {
   search_mode: PropTypes.string,
   search_keyword_placeholder: PropTypes.string,
   search_location_placeholder: PropTypes.string,
+  menu: PropTypes.shape(Menu.propTypes).isRequired,
+  languageMenu: PropTypes.shape(Menu.propTypes),
 };
 
 export default Topbar;

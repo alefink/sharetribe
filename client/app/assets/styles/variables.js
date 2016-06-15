@@ -81,7 +81,7 @@ module.exports = {
   '--topbarHeight': '80px',
   '--topbarLogoHeight': '40px',
   '--topbarFontFamily': "'Proxima Nova Soft', Helvetica, sans",
-  '--topbarFontSize': '14px',
+  '--topbarFontSize': fontSize,
 
   // SearchBar
   '--SearchBar_width': '24em',
