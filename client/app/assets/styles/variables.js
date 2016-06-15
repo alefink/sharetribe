@@ -115,5 +115,5 @@ module.exports = {
   '--Menu_fontSizeBig': fontSizeBig,
   '--Menu_colorBackground': backgroundLightColor,
   '--Menu_borderColor': borderColor,
-
+  '--Menu_iconPadding': '0.7em',
 };
