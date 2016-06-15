@@ -1,4 +1,9 @@
 /* eslint-env node */
+const textColor = 'rgb(82, 89, 97)';
+const textColorFocus = 'rgb(28, 30, 33)';
+const borderColor = 'rgba(169, 172, 176, 0.5)';
+const paddingTopbarVertical = '0.8125em';
+const paddingTopbarHorizontal = '1.5em';
 
 module.exports = {
 
@@ -95,4 +100,12 @@ module.exports = {
   '--SearchBar_focusContainerZIndex': '0',
   '--SearchBar_childZIndex': '1',
   '--SearchBar_searchButtonLineHeight': '44px',
+
+  '--MenuItem_borderColor': borderColor,
+  '--MenuItem_paddingTopbarVertical': paddingTopbarVertical,
+  '--MenuItem_paddingTopbarHorizontal': paddingTopbarHorizontal,
+  '--MenuItem_textColor': textColor,
+  '--MenuItem_textColorFocus': textColorFocus,
+  '--MenuItem_letterSpacing': '0.09px',
+
 };
