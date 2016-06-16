@@ -1,3 +1,5 @@
+@custom-media --Topbar_medium (min-width: 40em);
+
 .topbar {
   display: flex;
   flex-direction: row;
@@ -8,7 +10,7 @@
   background: var(--colorBackground);
   border-bottom: 1px solid rgba(0, 0, 50, 0.1);
 
-  @media (min-width: 40em) {
+  @media (--Topbar_medium) {
     height: var(--Topbar_height);
   }
 
@@ -33,6 +35,13 @@
     box-sizing: border-box;
     font-family: var(--Topbar_fontFamily);
     font-size: var(--Topbar_fontSize);
+  }
+  & input {
+    font-size: var(--Topbar_inputFontSizeMobile);
+
+    @media (--Topbar_medium) {
+      font-size: var(--Topbar_fontSize);
+    }
   }
 }
 

@@ -74,6 +74,10 @@ module.exports = {
   '--Topbar_mobileHeight': '50px',
   '--Topbar_logoHeight': '40px',
   '--Topbar_fontFamily': "'Proxima Nova Soft', Helvetica, sans",
+
+   // Must be at least 16px to avoid iOS from zooming in when focusing
+   // on an input.
+  '--Topbar_inputFontSizeMobile': '16px',
   '--Topbar_fontSize': '14px',
 
   // SearchBar

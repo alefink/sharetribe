@@ -95,12 +95,13 @@
   padding: 0;
   line-height: var(--SearchBar_mobileLineHeight);
   border: none;
+  border-bottom: 1px solid var(--SearchBar_mobileInputBorderColor);
+  border-radius: 0;
   color: var(--SearchBar_mobileTextColor);
   font-weight: var(--SearchBar_inputFontWeight);
   z-index: var(--SearchBar_childZIndex);
   flex-grow: 1;
   transition: flex-grow 0.25s ease-out, width 0.25s ease-out, color 0.1s ease-in;
-  border-bottom: 1px solid var(--SearchBar_mobileInputBorderColor);
 
   -webkit-font-smoothing: antialiased;
 
