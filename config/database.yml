@@ -2,8 +2,8 @@ development:
     adapter: mysql2
     database: sharetribe_development
     encoding: utf8
-    username: root
-    password: # ADD DATABASE PASSWORD
+    username: b871bef687873e
+    password: 9e1ed7e8
     host: localhost
 
 # Warning: The database defined as "test" will be erased and
@@ -13,24 +13,24 @@ test: &test
     adapter: mysql2
     database: sharetribe_test
     encoding: utf8
-    username: root
-    password: # ADD DATABASE PASSWORD
+    username: b871bef687873e
+    password: 9e1ed7e8
     host: localhost
 
 staging:
     adapter: mysql2
     database: sharetribe_staging
     encoding: utf8
-    username: root
-    password: # ADD DATABASE PASSWORD
+    username: b871bef687873e
+    password: 9e1ed7e8
     host: localhost
 
 production:
     adapter: mysql2
     database: sharetribe_production
     encoding: utf8
-    username: root
-    password: # ADD DATABASE PASSWORD
+    username: b871bef687873e
+    password: 9e1ed7e8
     host: localhost
 
 cucumber:
