@@ -1,3 +1,5 @@
+@custom-media --SearchBar_medium (min-width: 40em);
+
 /* The Google Maps Places Autocomplete dropdown box is added in the
    end of the document body, and we must scope the global style
    overrides within a class generated from the SearchBar component.
@@ -48,7 +50,7 @@
     margin-top: 0;
   }
 
-  @media (min-width: 40em) {
+  @media (--SearchBar_medium) {
     display: inline-flex;
     width: var(--SearchBar_width);
   }
@@ -79,7 +81,7 @@
   z-index: var(--SearchBar_focusContainerZIndex); /* Required to allow mouse event to the inputs/buttons. */
   transition: border-color 0.1s ease-in;
 
-  @media (min-width: 40em) {
+  @media (--SearchBar_medium) {
     display: block;
     border-radius: 10em; /* Big enough to be fully rounded */
   }
@@ -107,7 +109,7 @@
     flex-grow: 9;
     border-color: var(--SearchBar_mobileTextColor);
 
-    @media (min-width: 40em) {
+    @media (--SearchBar_medium) {
       flex-grow: 1;
     }
   }
@@ -121,7 +123,7 @@
     padding: 0;
     margin-right: calc(var(--SearchBar_inputButtonMargin) + 2 * var(--SearchBar_textPadding));
 
-    @media (min-width: 40em) {
+    @media (--SearchBar_medium) {
       margin-right: var(--SearchBar_inputButtonMargin);
 
       &:focus {
@@ -142,7 +144,7 @@
     color: var(--SearchBar_mobilePlaceholderColor);
   }
 
-  @media (min-width: 40em) {
+  @media (--SearchBar_medium) {
     color: var(--SearchBar_textColor);
     line-height: var(--SearchBar_lineHeight);
 
@@ -179,13 +181,13 @@
 .keywordInput {
   margin-right: var(--SearchBar_textPadding);
 
-  @media (min-width: 40em) {
+  @media (--SearchBar_medium) {
     width: var(--SearchBar_keywordInputWidth);
   }
 
   &:focus {
 
-    @media (min-width: 40em) {
+    @media (--SearchBar_medium) {
       width: var(--SearchBar_keywordInputFocusWidth);
       margin-right: calc(2 * var(--SearchBar_textPadding));
     }
@@ -193,7 +195,7 @@
     & ~ .locationInput {
       margin-right: var(--SearchBar_inputButtonMargin);
 
-      @media (min-width: 40em) {
+      @media (--SearchBar_medium) {
         width: calc(100% - var(--SearchBar_keywordInputFocusWidth));
       }
     }
@@ -201,7 +203,7 @@
     & ~ .searchButton {
       box-shadow: -1em 0 3em -1em #000;
 
-      @media (min-width: 40em) {
+      @media (--SearchBar_medium) {
         box-shadow: none;
       }
     }
@@ -209,7 +211,7 @@
 }
 
 .locationInput {
-  @media (min-width: 40em) {
+  @media (--SearchBar_medium) {
     width: calc(100% - var(--SearchBar_keywordInputWidth));
   }
 }
@@ -220,7 +222,7 @@
   margin-left: var(--SearchBar_textPadding);
   margin-right: calc(var(--SearchBar_inputButtonMargin) + 2 * var(--SearchBar_textPadding));
 
-  @media (min-width: 40em) {
+  @media (--SearchBar_medium) {
     border-left: 1px solid var(--SearchBar_borderColor);
     padding-left: calc(2 * var(--SearchBar_textPadding));
     margin-left: 0;
@@ -247,7 +249,7 @@
     background-color: var(--SearchBar_mobileButtonBackgroundColor);
   }
 
-  @media (min-width: 40em) {
+  @media (--SearchBar_medium) {
     padding: 0 var(--SearchBar_sidePadding);
     padding-top: 2px; /* Fix position. */
     background-color: transparent;
@@ -287,7 +289,7 @@
     border: 0.6em solid transparent;
     border-bottom-color: var(--SearchBar_mobileButtonBackgroundColor);
 
-    @media (min-width: 40em) {
+    @media (--SearchBar_medium) {
       display: none;
     }
   }
@@ -300,7 +302,7 @@
     stroke: var(--SearchBar_mobileTextColor);
     transition: stroke 0.1s ease-in;
 
-    @media (min-width: 40em) {
+    @media (--SearchBar_medium) {
       stroke: var(--SearchBar_iconColor);
       width: 1em;
       height: 1em;
@@ -329,7 +331,7 @@
     height: var(--SearchBar_mobileIconSize);
   }
 
-  @media (min-width: 40em) {
+  @media (--SearchBar_medium) {
     display: none;
   }
 }
