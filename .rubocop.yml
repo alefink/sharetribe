@@ -13,7 +13,7 @@ AllCops:
     - 'config/**/*'
     - 'node_modules/**/*'
     - 'client/node_modules/**/*'
-  TargetRubyVersion: 2.1
+  TargetRubyVersion: 2.3
 
 Style/RegexpLiteral:
   Enabled: false
