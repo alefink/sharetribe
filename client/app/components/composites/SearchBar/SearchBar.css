@@ -1,4 +1,5 @@
-@custom-media --SearchBar_medium (min-width: 40em);
+@custom-media --SearchBar_small (max-width: 40rem);
+@custom-media --SearchBar_medium (min-width: 40rem);
 
 /* The Google Maps Places Autocomplete dropdown box is added in the
    end of the document body, and we must scope the global style
@@ -27,32 +28,65 @@
 }
 
 /* Used in JavaScript to toggle the mobile menu. */
-.mobileMenuOpen {} /* stylelint-disable-line block-no-empty */
+.mobileMenuOpen {
+  @media (--SearchBar_small) {
+
+    & :global(.pac-container[style]) {
+      background-color: var(--SearchBar_mobileBackgroundColor);
+      border-top: none !important;
+      margin-top: 0px;
+    }
+
+    & :global(.pac-item) {
+
+      &:hover {
+        background-color: var(--SearchBar_mobileBackgroundColor);
+      }
+
+      &:first-of-type {
+        border-top: none;
+      }
+    }
+
+    & :global(.pac-item-selected) {
+      background-color: var(--SearchBar_mobileBackgroundColor);
+    }
+
+    & :global(.pac-item-query) {
+      color: #fff;
+    }
+  }
+}
 
 .root {
-  height: 100%;
 }
 
 .form {
   display: none;
-  position: relative;
-  margin-top: 1.2em; /* center vertically within Topbar */
-  padding-left: var(--SearchBar_sidePadding);
+  height: var(--SearchBar_mobileHeight);
+  position: absolute;
+  left: 0;
+  right: 0;
+  /* top: var(--SearchBar_mobileHeight); */
+  top: auto;
+  padding-left: var(--SearchBar_sidePaddingMobile);
   z-index: var(--SearchBar_formZIndex);
   transition: height 1s ease-in;
+  font-size: 16px;
 
   @nest .mobileMenuOpen & {
     display: flex;
-    position: absolute;
-    left: 0;
-    right: 0;
     background-color: var(--SearchBar_mobileBackgroundColor);
-    margin-top: 0;
   }
 
   @media (--SearchBar_medium) {
     display: inline-flex;
+    position: relative;
+    height: var(--SearchBar_height);
     width: var(--SearchBar_width);
+    padding-left: var(--SearchBar_sidePadding);
+    top: 0;
+    font-size: 14px;
   }
 
   &:hover .focusContainer::before {
@@ -91,9 +125,8 @@
 .locationInput {
   display: inline-block;
   width: 0;
-  margin: var(--SearchBar_textPadding) 0;
+  margin: var(--SearchBar_textPaddingMobile) 0;
   padding: 0;
-  line-height: var(--SearchBar_mobileLineHeight);
   border: none;
   border-bottom: 1px solid var(--SearchBar_mobileInputBorderColor);
   border-radius: 0;
@@ -122,13 +155,13 @@
   &:only-of-type {
     width: 100%;
     padding: 0;
-    margin-right: calc(var(--SearchBar_inputButtonMargin) + 2 * var(--SearchBar_textPadding));
+    margin-right: calc(var(--SearchBar_mobileHeight) + var(--SearchBar_sidePaddingMobile));
 
     @media (--SearchBar_medium) {
-      margin-right: var(--SearchBar_inputButtonMargin);
+      margin-right: var(--SearchBar_height);
 
       &:focus {
-        margin-right: var(--SearchBar_inputButtonMargin);
+        margin-right: var(--SearchBar_height);
       }
     }
 
@@ -147,7 +180,8 @@
 
   @media (--SearchBar_medium) {
     color: var(--SearchBar_textColor);
-    line-height: var(--SearchBar_lineHeight);
+    margin: var(--SearchBar_textPadding) 0;
+    border: none;
 
     &::placeholder {
       color: var(--SearchBar_textColor);
@@ -180,21 +214,21 @@
 }
 
 .keywordInput {
-  margin-right: var(--SearchBar_textPadding);
+  margin-right: calc(var(--SearchBar_sidePaddingMobile) / 2);
 
   @media (--SearchBar_medium) {
     width: var(--SearchBar_keywordInputWidth);
+    margin-right: var(--SearchBar_sidePadding);
   }
 
   &:focus {
 
     @media (--SearchBar_medium) {
       width: var(--SearchBar_keywordInputFocusWidth);
-      margin-right: calc(2 * var(--SearchBar_textPadding));
     }
 
     & ~ .locationInput {
-      margin-right: var(--SearchBar_inputButtonMargin);
+      margin-right: var(--SearchBar_mobileHeight);
 
       @media (--SearchBar_medium) {
         width: calc(100% - var(--SearchBar_keywordInputFocusWidth));
@@ -202,7 +236,7 @@
     }
 
     & ~ .searchButton {
-      box-shadow: -1em 0 3em -1em #000;
+      box-shadow: -10px 0 20px -5px #000;
 
       @media (--SearchBar_medium) {
         box-shadow: none;
@@ -220,14 +254,15 @@
 /* Additional separating styles are added only when the two inputs are
    next to each other. */
 .keywordInput + .locationInput {
-  margin-left: var(--SearchBar_textPadding);
-  margin-right: calc(var(--SearchBar_inputButtonMargin) + 2 * var(--SearchBar_textPadding));
+  margin-left: calc(var(--SearchBar_sidePaddingMobile) / 2);
+  margin-right: calc(var(--SearchBar_mobileHeight) + var(--SearchBar_sidePaddingMobile));
 
   @media (--SearchBar_medium) {
     border-left: 1px solid var(--SearchBar_borderColor);
-    padding-left: calc(2 * var(--SearchBar_textPadding));
+    /* padding-left: calc(var(--SearchBar_sidePadding) / 2); */
+    padding-left: var(--SearchBar_sidePadding);
     margin-left: 0;
-    margin-right: var(--SearchBar_inputButtonMargin);
+    margin-right: var(--SearchBar_height);
   }
 }
 
@@ -236,13 +271,13 @@
   position: absolute;
   top: 0;
   right: 0;
-  bottom: 0;
   margin: 0;
   padding: 0;
-  line-height: var(--SearchBar_searchButtonLineHeight);
+  line-height: 1;
   border: none;
   background-color: var(--SearchBar_mobileButtonBackgroundColor);
-  width: var(--SearchBar_mobileButtonWidth);
+  width: var(--SearchBar_mobileHeight);
+  height: var(--SearchBar_mobileHeight);
   cursor: pointer;
   z-index: var(--SearchBar_childZIndex);
 
@@ -251,8 +286,8 @@
   }
 
   @media (--SearchBar_medium) {
-    padding: 0 var(--SearchBar_sidePadding);
-    padding-top: 2px; /* Fix position. */
+    width: var(--SearchBar_height);
+    height: var(--SearchBar_height);
     background-color: transparent;
 
     &:focus {
@@ -285,9 +320,9 @@
   &::before {
     content: '';
     position: absolute;
-    top: -1.17em;
-    right: 1.4em;
-    border: 0.6em solid transparent;
+    top: calc(-2 * var(--SearchBar_mobileTriangleSize));
+    right: calc(var(--SearchBar_mobileHeight) / 2 - var(--SearchBar_mobileTriangleSize));
+    border: var(--SearchBar_mobileTriangleSize) solid transparent;
     border-bottom-color: var(--SearchBar_mobileButtonBackgroundColor);
 
     @media (--SearchBar_medium) {
@@ -297,17 +332,14 @@
 
   & svg {
     line-height: 1;
-    width: var(--SearchBar_mobileIconSize);
-    height: var(--SearchBar_mobileIconSize);
-    margin-top: 1em; /* Fix position */
+    width: var(--SearchBar_iconSize);
+    height: var(--SearchBar_iconSize);
+    margin-top: var(--SearchBar_iconTopMarginFix);
     stroke: var(--SearchBar_mobileTextColor);
     transition: stroke 0.1s ease-in;
 
     @media (--SearchBar_medium) {
       stroke: var(--SearchBar_iconColor);
-      width: 1em;
-      height: 1em;
-      margin-top: 0.14em; /* Fix position */
     }
   }
 }
@@ -316,8 +348,8 @@
   display: inline-block;
   margin: 0;
   padding: 0;
-  width: var(--SearchBar_mobileButtonWidth);
-  height: 100%;
+  width: var(--SearchBar_mobileHeight);
+  height: var(--SearchBar_mobileHeight);
   background-color: transparent;
   border: none;
   stroke: #000;
@@ -328,8 +360,9 @@
   }
 
   & svg {
-    width: var(--SearchBar_mobileIconSize);
-    height: var(--SearchBar_mobileIconSize);
+    width: var(--SearchBar_iconSize);
+    height: var(--SearchBar_iconSize);
+    margin-top: var(--SearchBar_iconTopMarginFix);
   }
 
   @media (--SearchBar_medium) {

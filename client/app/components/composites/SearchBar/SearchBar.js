@@ -191,6 +191,13 @@ class SearchBar extends Component {
     const hasKeywordInput = mode === SEARCH_MODE_KEYWORD || mode === SEARCH_MODE_KEYWORD_AND_LOCATION;
     const hasLocationInput = mode === SEARCH_MODE_LOCATION || mode === SEARCH_MODE_KEYWORD_AND_LOCATION;
 
+    // Ugly, but we have to add the class to body since the Google
+    // Maps Places Autocomplete .pac-container is within the body
+    // element.
+    if (typeof document === 'object' && document.body) {
+      document.body.classList.toggle(css.mobileMenuOpen, this.state.mobileMenu);
+    }
+
     return div({
       className: css.root,
       classSet: {
