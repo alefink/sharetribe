@@ -38,7 +38,7 @@ class MenuLabelDropdown extends Component {
   render() {
     return (
       div({
-        className: `menu__label ${css.menuLabel}`,
+        className: `menu__label ${css.menuLabel} ${this.props.extraClasses}`,
         onClick: this.handleClick,
         onKeyUp: this.handleKeyUp,
         onKeyDown: this.handleKeyDown,

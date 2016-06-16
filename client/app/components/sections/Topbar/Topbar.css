@@ -41,3 +41,7 @@
 .topbarLogo {
   height: var(--topbarLogoHeight);
 }
+
+.topbarLanguageMenuLabel {
+  font-size: var(--Menu_fontSizeSmall);
+}

@@ -37,7 +37,7 @@ class MenuLabel extends Component {
   render() {
     return (
       div({
-        className: `menu__label ${css.menuLabel}`,
+        className: `menu__label ${css.menuLabel} ${this.props.extraClasses}`,
         onClick: this.handleClick,
         onKeyUp: this.handleKeyUp,
         onKeyDown: this.handleKeyDown,
@@ -63,6 +63,7 @@ MenuLabel.propTypes = {
   isOpen: bool,
   hasFocus: bool.isRequired,
   name: string.isRequired,
+  extraClasses: string,
 };
 
 export default MenuLabel;
