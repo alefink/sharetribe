@@ -4,7 +4,7 @@ development:
     encoding: utf8
     username: b871bef687873e
     password: 9e1ed7e8
-    host: localhost
+    host: heroku_822dddb34d152a4
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -15,7 +15,7 @@ test: &test
     encoding: utf8
     username: b871bef687873e
     password: 9e1ed7e8
-    host: localhost
+    host: heroku_822dddb34d152a4
 
 staging:
     adapter: mysql2
@@ -23,7 +23,7 @@ staging:
     encoding: utf8
     username: b871bef687873e
     password: 9e1ed7e8
-    host: localhost
+    host: heroku_822dddb34d152a4
 
 production:
     adapter: mysql2
@@ -31,7 +31,7 @@ production:
     encoding: utf8
     username: b871bef687873e
     password: 9e1ed7e8
-    host: localhost
+    host: heroku_822dddb34d152a4
 
 cucumber:
   <<: *test
