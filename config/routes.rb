@@ -71,9 +71,7 @@ Kassi::Application.routes.draw do
   # Inside this constraits are the routes that are used when request has subdomain other than www
   get '/:locale/' => 'homepage#index', :constraints => { :locale => locale_matcher }, as: :homepage_with_locale
   get '/' => 'homepage#index', as: :homepage_without_locale
-  get '/s', to: redirect('/')
-
-  root :to => 'homepage#index'
+  get '/s', to: redirect('/', status: 307)
 
   get '/_lp_preview' => 'landing_page#preview'
 
